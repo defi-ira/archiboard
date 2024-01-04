@@ -1,0 +1,184 @@
+/* App.css */
+body {
+    margin: 0;
+}
+
+.App {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.floating-panel {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 93%;
+    width: 480px;
+    background-color: rgba(42, 124, 117, 0.686);
+    /* Semi-transparent background */
+    overflow-y: auto;
+    z-index: 1000;
+    /* Ensure it's above the canvas */
+    margin: 3% 60px;
+    border-radius: 25px;
+    transition: width 0.4s ease, opacity 0.4s ease;
+}
+
+.floating-panel-expanded {
+    width: 480px;
+}
+
+.floating-panel-collapsed {
+    width: 80px;
+}
+
+.react-flow-canvas {
+    height: 100%;
+    width: 100%;
+}
+
+.floatingCard {
+    display: none;
+}
+
+
+/* App.css */
+/* ... existing styles ... */
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #121212;
+    /* Dark background */
+    color: #ffffff;
+    /* Light text */
+}
+
+.dark-mode .floating-panel-expanded,
+.dark-mode .floating-panel-collapsed,
+.dark-mode .floating-card {
+    background-color: #1e1e1e;
+    /* Slightly lighter dark color for panels */
+}
+
+/* Toggle Switch Styles */
+.switch {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 2000;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+.switch label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 21px;
+    height: 21px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked+label {
+    background: #4caf50;
+}
+
+input:checked+label:after {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+}
+
+.dark-mode .react-flow__background,
+.dark-mode .react-flow__minimap {
+    background-color:#2a2a2a;
+}
+
+.dark-mode .react-flow__panel,
+.dark-mode .react-flow__controls{
+    background-color: #2a2a2a;
+    color:#fff;
+}
+
+.dark-mode .react-flow__node {
+    background-color: #2a2a2a;
+    color:#fff;
+    border: 1px solid #fff;
+    font-size: large;
+}
+
+.panel-collapse-button-container {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;    
+}
+
+.panel-collapse-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.4s ease;
+    font-size: 20px;
+}
+
+.dark-mode .panel-collapse-button {
+    background-color: #2a2a2a;
+    color: white;
+}
+
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .floating-panel-expanded {
+        display: none;
+    }
+
+    .floating-card {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 200px;
+        width: 93%;
+        background-color: rgba(42, 124, 117, 0.686);
+        /* Semi-transparent background */
+        margin: 3%;
+        overflow-y: auto;
+        z-index: 1000;
+        border-radius: 25px;
+        /* Ensure it's above the canvas */
+    }
+
+    .switch {
+        position: fixed;
+        top: 160px;
+        left: 25px;
+        z-index: 2000;
+    }
+}
